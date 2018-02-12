@@ -1,0 +1,23 @@
+<div id="calculator" (keyup)="test($event)">
+  <div class="display">
+    <div class="main">{{ display }}</div>
+    <div class="sub">{{ subDisplay }}</div>
+  </div>
+  <div class="clearfix controlPanel">
+    <div class="numbers f_l">
+      <div>
+        <span *ngFor="let item of numbers"
+              (click)="buildNumber(item)">{{ item }}</span>
+      </div>
+    </div>
+    <div class="operation f_l">
+      <span *ngFor="let operator of operators"
+            (click)="selectOperator(operator)">{{ operator }}</span>
+    </div>
+    <span id="equalTo" (click)="calculate()">=</span>
+    <span id="clear" (click)="clear()">CE</span>
+  </div>
+</div>
+<p>Delete button: CE</p>
+<p>Backspace: remove character</p>
+<p style="color: red">{{ error }}</p>
